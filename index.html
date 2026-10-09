@@ -70,6 +70,7 @@
       --text: #ece8df;
       --muted: #9b958a;
       --hair: #2b2925;
+      --rule: #4a473f;
       --red: #e5473f;
       --paper: #f2efe7;
       --serif: "Source Serif 4", Georgia, serif;
@@ -505,19 +506,25 @@
       .story, .btn, .nav a, .tag, .contact-list a, .story__arrow, .lang__btn { transition: none; }
     }
 
-        /* ---------- Tech / Experience / CV CTA ---------- */
-    .tech-groups {
+        /* ---------- Stack & profile (merged) ---------- */
+
+    .perfil__lede {
+      margin: 0 0 34px;
+      max-width: 68ch;
+    }
+
+    .perfil__grp {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
+      gap: 30px 26px;
     }
+
     .tech-group {
-      border: 1px solid var(--hair);
-      background: var(--bg-hi);
-      padding: 16px;
+      border-top: 1px solid var(--rule);
+      padding-top: 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
     .tech-group__title {
       margin: 0;
@@ -534,7 +541,7 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
     }
     .tech-list li {
       font-family: var(--label);
@@ -542,9 +549,47 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: 6px 10px;
+      padding: 5px 9px;
       border: 1px solid var(--hair);
       color: var(--muted);
+      transition: color 120ms ease-out, border-color 120ms ease-out;
+    }
+    .tech-group:hover .tech-list li { color: var(--text); border-color: var(--text); }
+
+    .perfil__foot {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 34px;
+      border-top: 1px solid var(--rule);
+      margin-top: 38px;
+      padding-top: 28px;
+    }
+    .perfil__block-title {
+      margin: 0 0 16px;
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--red);
+    }
+    .perfil__edu p { margin: 0 0 14px; max-width: 46ch; }
+    .perfil__edu p:last-child { margin-bottom: 0; }
+    .skill-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .skill-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--hair);
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .skill-list li::before {
+      content: "—";
+      color: var(--red);
+      margin-right: 9px;
     }
     .timeline {
       border-top: 1px solid var(--hair);
@@ -583,10 +628,13 @@
       max-width: 70ch;
     }
     @media (max-width: 1080px) {
-      .tech-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .perfil__grp { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .perfil__foot { grid-template-columns: 1fr 1fr; }
+      .perfil__edu { grid-column: 1 / -1; }
     }
     @media (max-width: 640px) {
-      .tech-groups { grid-template-columns: 1fr; }
+      .perfil__grp { grid-template-columns: 1fr; }
+      .perfil__foot { grid-template-columns: 1fr; gap: 30px; }
     }
 
     @media (max-width: 880px) {
@@ -611,8 +659,8 @@
       <span class="meta" data-en="Night edition <b>·</b> Mar del Plata <b>·</b> 2026">Mar del Plata <b>·</b> 2026</span>
       <div class="masthead__right">
         <nav class="nav" aria-label="Principal" data-en-label="Main">
-          <a href="#proyectos" data-en="Projects">Proyectos</a> <a href="#tecnologias" data-en="Technologies">Tecnologías</a> <a href="#stack" data-en="Stack">Stack</a>
-          <a href="#sobre-mi" data-en="About">Sobre mí</a>
+          <a href="#proyectos" data-en="Projects">Proyectos</a> <a href="#stack" data-en="Stack &amp; profile">Stack y perfil</a>
+          <a href="#experiencia" data-en="Experience">Experiencia</a>
           <a href="contacto.html" data-en="Contact">Contacto</a>
         </nav>
         <div class="lang" role="group" aria-label="Idioma / Language">
@@ -697,71 +745,96 @@
       </div>
     </section>
 
-    <section class="sec" id="stack" aria-labelledby="t-s">
+    <section class="sec" id="stack" aria-labelledby="t-stack">
       <div class="sec__head rise">
-        <h2 class="sec__title" id="t-s">Stack</h2>
-        <span class="meta" data-en="Tooling">Herramientas</span>
+        <h2 class="sec__title" id="t-stack" data-en="Stack &amp; profile">Sobre mi</h2>
+        <span class="meta" data-en="Technologies <b>·</b> Training <b>·</b> Contact">Tecnologías <b>·</b> Formación <b>·</b> Contacto</span>
       </div>
-      <div class="tags rise" style="--d:60ms">
-        <span class="tag">Java 21</span>
-        <span class="tag">Spring Boot</span>
-        <span class="tag">Spring Security</span>
-        <span class="tag">JWT</span>
-        <span class="tag">Angular</span>
-        <span class="tag">TypeScript</span>
-        <span class="tag">SCSS</span>
-        <span class="tag">Tailwind</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">JPA</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Git</span>
-        <span class="tag">pandas</span>
-        <span class="tag">Looker Studio</span>
-      </div>
-    <section class="sec" id="tecnologias" aria-labelledby="tech-title">
-      <div class="sec__head">
-        <h2 class="sec__title" id="tech-title" data-en="Technologies">Tecnologías</h2>
-      </div>
-      <div class="tech-groups">
+
+      <p class="deck perfil__lede rise" style="--d:40ms" data-en="Fullstack developer focused on backend, based in Mar del Plata. I design and ship APIs and platforms to production with Java, Spring and Angular, caring about security, code clarity and the real outcome — for university, for clients and for the fun of it.">Desarrollador fullstack con foco en backend, radicado en Mar del Plata. Diseño y llevo a producción APIs y plataformas con Java, Spring y Angular, cuidando la seguridad, la claridad del código y el resultado real — para la facultad, para clientes y por ganas.</p>
+
+      <div class="perfil__grp rise" style="--d:80ms">
         <article class="tech-group">
           <h3 class="tech-group__title" data-en="Backend">Backend</h3>
           <ul class="tech-list">
+            <li>Java 21</li>
+            <li>Spring Boot</li>
+            <li>Spring Security</li>
+            <li>JWT</li>
             <li>Node.js</li>
             <li>Express</li>
-            <li>TypeScript</li>
-            <li>Java</li>
-            <li>Spring Boot</li>
             <li>Python</li>
           </ul>
         </article>
         <article class="tech-group">
-          <h3 class="tech-group__title" data-en="Databases">Bases de datos</h3>
+          <h3 class="tech-group__title" data-en="Frontend">Frontend</h3>
           <ul class="tech-list">
-            <li>PostgreSQL</li>
-            <li>MySQL</li>
-            <li>SQLite</li>
+            <li>Angular</li>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>SCSS</li>
+            <li>Tailwind</li>
           </ul>
         </article>
         <article class="tech-group">
-          <h3 class="tech-group__title" data-en="Data &amp; ETL">Datos &amp; ETL</h3>
+          <h3 class="tech-group__title" data-en="Data">Datos</h3>
           <ul class="tech-list">
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+            <li>SQLite</li>
+            <li>JPA</li>
             <li>Pandas</li>
             <li>NumPy</li>
-            <li>Jupyter</li>
             <li>ETL</li>
           </ul>
         </article>
         <article class="tech-group">
-          <h3 class="tech-group__title" data-en="Infra &amp; Tools">Infra &amp; Tools</h3>
+          <h3 class="tech-group__title" data-en="Infra &amp; Tools">Infra &amp; herramientas</h3>
           <ul class="tech-list">
-            <li>Git</li>
             <li>Docker</li>
-            <li>Railway</li>
+            <li>Git</li>
             <li>Vercel</li>
             <li>Render</li>
+            <li>Railway</li>
             <li>Looker Studio</li>
           </ul>
         </article>
+      </div>
+
+      <div class="perfil__foot rise" style="--d:120ms">
+        <section class="perfil__edu" id="educacion" aria-label="Formación">
+          <h3 class="perfil__block-title" data-en="Training">Formación</h3>
+          <p class="where" data-en="UTN Mar del Plata · 2023 – in progress">UTN Mar del Plata · 2023 – en curso</p>
+          <p data-en="Technologist in Software Development, focused on backend: Java, Spring and API design that runs in production.">Tecnología en Desarrollo de Software, con el foco puesto en backend: Java, Spring y diseño de APIs que funcionan en producción.</p>
+          <p class="where">Institución Jesús Obrero · 2006 – 2020</p>
+          <p data-en="Full secondary education. Since then, most of what I know I learned building real things: for university, for clients and for fun.">Educación secundaria completa. Desde entonces, la mayoría de lo que sé lo aprendí construyendo cosas reales: para la facultad, para clientes y por ganas.</p>
+        </section>
+
+        <section aria-label="Habilidades blandas">
+          <h3 class="perfil__block-title" data-en="Soft skills">Habilidades blandas</h3>
+          <ul class="skill-list">
+            <li data-en="Clear communication">Comunicación clara</li>
+            <li data-en="Problem solving">Resolución de problemas</li>
+            <li data-en="Teamwork">Trabajo en equipo</li>
+            <li data-en="Proactivity">Proactividad</li>
+            <li data-en="Adaptability">Adaptabilidad</li>
+            <li data-en="Attention to detail">Atención al detalle</li>
+            <li data-en="Commitment">Compromiso</li>
+            <li data-en="Time management">Gestión del tiempo</li>
+          </ul>
+        </section>
+
+        <section aria-label="Contacto">
+          <h3 class="perfil__block-title" data-en="Contact">Contacto</h3>
+          <ul class="contact-list">
+            <li><a href="mailto:matifelissia2205@gmail.com">Email <span>→</span></a></li>
+            <li><a href="https://github.com/matifl3" target="_blank" rel="noopener">GitHub <span>↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/matias-felissia-b908841aa/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a></li>
+            <li><a href="https://wa.me/5492235391618" target="_blank" rel="noopener">WhatsApp <span>↗</span></a></li>
+            <li><a href="https://www.instagram.com/matifl_/" target="_blank" rel="noopener">Instagram <span>↗</span></a></li>
+            <li><a href="assets/Curriculum Vitae - Matías Felissia.pdf" download><span data-en="CV (PDF)">CV (PDF)</span> <span>↓</span></a></li>
+          </ul>
+        </section>
       </div>
     </section>
 
@@ -788,43 +861,6 @@
       <a class="btn btn--red" href="assets/Curriculum Vitae - Matías Felissia.pdf" target="_blank" rel="noopener noreferrer" data-en="View CV (PDF)">Ver CV en PDF</a>
     </section>
 
-    <section class="sec" id="sobre-mi" aria-labelledby="t-so">
-      <div class="sec__head rise">
-        <h2 class="sec__title" id="t-so" data-en="About me">Sobre mí</h2>
-        <span class="meta" data-en="Education <b>·</b> Contact">Formación <b>·</b> Contacto</span>
-      </div>
-            <div class="soft-skills rise" style="--d:200ms">
-        <h3 class="soft-skills__title" data-en="Soft skills">Habilidades blandas</h3>
-        <ul class="soft-skills__list">
-          <li data-en="Clear communication">Comunicación clara</li>
-          <li data-en="Problem solving">Resolución de problemas</li>
-          <li data-en="Teamwork">Trabajo en equipo</li>
-          <li data-en="Proactivity">Proactividad</li>
-          <li data-en="Adaptability">Adaptabilidad</li>
-          <li data-en="Attention to detail">Atención al detalle</li>
-          <li data-en="Commitment">Compromiso</li>
-          <li data-en="Time management">Gestión del tiempo</li>
-        </ul>
-      </div>
-        <div class="cols">
-        <div id="educacion" class="rise" style="--d:0ms">
-          <p class="where" data-en="UTN Mar del Plata · 2023 – in progress">UTN Mar del Plata · 2023 – en curso</p>
-          <p data-en="Technologist in Software Development, focused on backend: Java, Spring and API design that runs in production.">Tecnología en Desarrollo de Software, con el foco puesto en backend: Java, Spring y diseño de APIs que funcionan en producción.</p>
-          <p class="where">Institución Jesús Obrero · 2006 – 2020</p>
-          <p data-en="Full secondary education. Since then, most of what I know I learned building real things: for university, for clients and for fun.">Educación secundaria completa. Desde entonces, la mayoría de lo que sé lo aprendí construyendo cosas reales: para la facultad, para clientes y por ganas.</p>
-        </div>
-        <div class="rise" style="--d:60ms">
-          <ul class="contact-list">
-            <li><a href="mailto:matifelissia2205@gmail.com">Email <span>→</span></a></li>
-            <li><a href="https://github.com/matifl3" target="_blank" rel="noopener">GitHub <span>↗</span></a></li>
-            <li><a href="https://www.linkedin.com/in/matias-felissia-b908841aa/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a></li>
-            <li><a href="https://wa.me/5492235391618" target="_blank" rel="noopener">WhatsApp <span>↗</span></a></li>
-            <li><a href="https://www.instagram.com/matifl_/" target="_blank" rel="noopener">Instagram <span>↗</span></a></li>
-            <li><a href="assets/Curriculum Vitae - Matías Felissia.pdf" download><span data-en="CV (PDF)">CV (PDF)</span> <span>↓</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="colophon">

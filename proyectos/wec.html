@@ -1,0 +1,202 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WEC — Pipeline ETL · Matías Felissia</title>
+  <meta name="description" content="Pipeline ETL en Python: normaliza y valida datos de cronometraje de 4 temporadas del WEC y los exporta a dashboards en Looker Studio.">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23e5473f'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='14' font-weight='900' text-anchor='middle' fill='%23160b0a'%3EMF%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="../assets/fonts/sourceseriflatin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/press.css">
+  <script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-en="Skip to content">Saltar al contenido</a>
+
+  <header class="masthead">
+    <div class="shell">
+      <div class="masthead__folio">
+        <p class="masthead__folio-note">
+          <span data-en="Projects · story 5 of 7">Proyectos · historia 5 de 7</span>
+        </p>
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" class="lang__btn" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+
+      <a class="masthead__name" href="../index.html">Matías Felissia</a>
+
+      <div class="masthead__bar">
+        <nav aria-label="Principal">
+          <ul class="nav">
+            <li><a class="nav__link" href="../index.html#proyectos" aria-current="page" data-en="Projects">Proyectos</a></li>
+            <li><a class="nav__link" href="../index.html#stack" data-en="Stack">Stack</a></li>
+            <li><a class="nav__link" href="../index.html#educacion" data-en="Education">Educación</a></li>
+            <li><a class="nav__link" href="../contacto.html" data-en="Contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--ink masthead__cta" href="../contacto.html" data-en="Contact">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="shell">
+    <p class="crumbs">
+      <a href="../index.html" data-en="Home">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#proyectos" data-en="Projects">Proyectos</a>
+      <span aria-hidden="true">/</span>
+      <span>5 · WEC ETL</span>
+    </p>
+
+    <header class="storyhead">
+      <p class="storyhead__meta">
+        <span data-en="Story 5 of 7">Historia 5 de 7</span>
+        <span aria-hidden="true">·</span>
+        <span class="chip" data-en="Delivered">Entregado</span>
+      </p>
+      <h1 class="storyhead__title">WEC — Pipeline ETL</h1>
+      <p class="storyhead__deck" data-en="Four seasons of endurance-racing timing data, taken from raw files to clean models to an interactive dashboard.">ETL para normalizar y unificar los datos de cuatro temporadas del Campeonato Mundial de Resistencia (WEC), dejándolos limpios, estructurados y reutilizables para análisis.</p>
+    </header>
+
+    <div class="ficha">
+      <div class="ficha__row">
+        <span class="ficha__key" data-en="Role">Rol</span>
+        <span class="ficha__val" data-en="Design and build of the entire pipeline, from ingestion to dashboard hand-off.">Diseño y desarrollo del pipeline completo, de la ingesta a la entrega del dashboard.</span>
+      </div>
+      <div class="ficha__row">
+        <span class="ficha__key">Stack</span>
+        <span class="ficha__val">Python · pandas · numpy · Looker Studio</span>
+      </div>
+      <div class="ficha__row">
+        <span class="ficha__key" data-en="Figures">Cifras</span>
+        <span class="ficha__val" data-en="4 seasons · <b>automatic debug reports</b> · clean models exported">4 temporadas del WEC normalizadas y unificadas · Reportes automáticos de depuración de datos · Modelos limpios y estructurados listos para BI</span>
+      </div>
+      <div class="ficha__row">
+        <span class="ficha__key" data-en="Status">Estado</span>
+        <span class="ficha__val" data-en="Delivered work — no public repo, no public dashboard.">Entrega de trabajo — Informe técnico (PDF), exports limpios y dashboards en Looker Studio.</span>
+      </div>
+    </div>
+
+    <div class="parts">
+      <section class="part">
+        <h2 data-en="What this pipeline runs">Qué procesa este pipeline</h2>
+        <p data-en="Four WEC championship seasons of timing data. Raw timing files are not analysis-ready: they need normalizing, validating and cleaning before anyone can trust a chart.">Cuatro temporadas del campeonato WEC con datos de cronometraje. El archivo crudo no sirve para analizar: hay que normalizarlo, validarlo y limpiarlo antes de confiar en cualquier gráfico.</p>
+      </section>
+
+      <section class="part">
+        <h2 data-en="What I built">Qué construí</h2>
+        <ul>
+          <li data-en="Normalization and validation of timing data across 4 seasons.">Normalización y validación de datos de cronometraje de 4 temporadas.</li>
+          <li data-en="Automatic data-quality debugging reports.">Reportes automáticos de depuración de la información.</li>
+          <li data-en="Export of clean models for downstream analysis.">Exportación de modelos limpios para análisis posterior.</li>
+          <li data-en="Interactive dashboards in Looker Studio on top of the clean data.">Dashboards interactivos en Looker Studio sobre los datos limpios.</li>
+        </ul>
+      </section>
+
+      <section class="part">
+        <h2 data-en="Under the hood">Bajo el capó</h2>
+        <ul>
+          <li data-en="ETL logic in Python with pandas and numpy.">Lógica ETL en Python con pandas y numpy.</li>
+          <li data-en="Validation before visualization: bad rows get reported, not silently dropped.">Validación antes de visualizar: las filas malas se reportan, no se descartan en silencio.</li>
+          <li data-en="Clean, documented outputs ready for BI.">Salidas limpias y documentadas, listas para BI.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="flow-title">
+      <div class="section__head">
+        <h2 class="section__title" id="flow-title" data-en="The flow">El flujo</h2>
+        <p class="section__note" data-en="The pipeline, drawn as it runs: raw timing in, dashboard out.">El pipeline, dibujado como corre: cronometraje crudo adentro, dashboard afuera.</p>
+      </div>
+
+      <figure class="plate">
+        <div class="plate__shot plate__shot--diagram" tabindex="0">
+          <svg viewBox="0 0 1000 240" width="100%" role="img" aria-labelledby="flow-svg-title flow-svg-desc">
+            <title id="flow-svg-title">Flujo del pipeline ETL del WEC</title>
+            <desc id="flow-svg-desc">Cronometraje WEC de 4 temporadas se normaliza con pandas y numpy, se valida con reportes de depuración, produce modelos limpios y alimenta dashboards en Looker Studio.</desc>
+
+            <!-- node 1 -->
+            <g>
+              <rect x="8" y="60" width="176" height="120" fill="#f2efe7" stroke="#0d0d0d" stroke-width="1.5"/>
+              <text x="96" y="112" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="13" font-weight="700" fill="#0d0d0d" data-en="TIMING DATA">CRONOMETRAJE</text>
+              <text x="96" y="134" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="13" font-weight="700" fill="#a80000">WEC</text>
+              <text x="96" y="158" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="11" fill="#3d3b36" data-en="4 seasons · raw files">4 temporadas · crudo</text>
+            </g>
+            <path d="M190 120 h44" stroke="#f2564d" stroke-width="2"/>
+            <path d="M228 114 l8 6 -8 6" fill="none" stroke="#f2564d" stroke-width="2"/>
+
+            <!-- node 2 -->
+            <g>
+              <rect x="242" y="60" width="176" height="120" fill="#f2efe7" stroke="#d40000" stroke-width="1.5"/>
+              <text x="330" y="112" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="14" font-weight="700" fill="#a80000" data-en="NORMALIZE">NORMALIZAR</text>
+              <text x="330" y="142" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="12" fill="#0d0d0d">pandas · numpy</text>
+            </g>
+            <path d="M424 120 h44" stroke="#f2564d" stroke-width="2"/>
+            <path d="M462 114 l8 6 -8 6" fill="none" stroke="#f2564d" stroke-width="2"/>
+
+            <!-- node 3 -->
+            <g>
+              <rect x="476" y="60" width="176" height="120" fill="#f2efe7" stroke="#d40000" stroke-width="1.5"/>
+              <text x="564" y="112" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="14" font-weight="700" fill="#a80000" data-en="VALIDATE">VALIDAR</text>
+              <text x="564" y="138" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="11" fill="#3d3b36" data-en="debug reports">reportes de</text>
+              <text x="564" y="154" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="11" fill="#3d3b36" data-en="data quality">depuración</text>
+            </g>
+            <path d="M658 120 h44" stroke="#f2564d" stroke-width="2"/>
+            <path d="M696 114 l8 6 -8 6" fill="none" stroke="#f2564d" stroke-width="2"/>
+
+            <!-- node 4 -->
+            <g>
+              <rect x="710" y="60" width="130" height="120" fill="#f2efe7" stroke="#0d0d0d" stroke-width="1.5"/>
+              <text x="775" y="112" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="13" font-weight="700" fill="#0d0d0d" data-en="CLEAN">MODELOS</text>
+              <text x="775" y="132" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="13" font-weight="700" fill="#0d0d0d" data-en="MODELS">LIMPIOS</text>
+              <text x="775" y="156" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="11" fill="#3d3b36" data-en="exported">exportados</text>
+            </g>
+            <path d="M846 120 h34" stroke="#f2564d" stroke-width="2"/>
+            <path d="M874 114 l8 6 -8 6" fill="none" stroke="#f2564d" stroke-width="2"/>
+
+            <!-- node 5 -->
+            <g>
+              <rect x="888" y="60" width="104" height="120" fill="#f2efe7" stroke="#d40000" stroke-width="1.5"/>
+              <text x="940" y="112" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="12" font-weight="700" fill="#a80000">LOOKER</text>
+              <text x="940" y="130" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="12" font-weight="700" fill="#a80000">STUDIO</text>
+              <text x="940" y="154" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="11" fill="#3d3b36" data-en="dashboards">dashboards</text>
+            </g>
+
+            <text x="500" y="222" text-anchor="middle" font-family="Archivo Narrow, Arial Narrow, sans-serif" font-size="11" fill="#9b958a" data-en="ETL PIPELINE · PYTHON · PANDAS · NUMPY">ETL PIPELINE · PYTHON · PANDAS · NUMPY</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 1</b> — <span data-en="Raw timing in, dashboard out — 4 WEC seasons">Cronometraje crudo adentro, dashboard afuera — 4 temporadas WEC</span></figcaption>
+      </figure>
+    </section>
+
+    <nav class="pager" aria-label="Navegación de proyectos">
+      <a href="freelance.html">
+        <span class="pager__label" data-en="Previous">Anterior</span>
+        <span class="pager__name"><span class="pager__pos">4</span> Freelance</span>
+      </a>
+      <a href="redsocial.html">
+        <span class="pager__label" data-en="Next">Siguiente</span>
+        <span class="pager__name"><span class="pager__pos">6</span> Red Social en C</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="colophon">
+    <div class="shell">
+      <div class="colophon__inner">
+        <p class="colophon__meta" data-en="© 2026 Matías Felissia · Mar del Plata, AR · hand-written HTML/CSS/JS, no templates">© 2026 Matías Felissia · Mar del Plata, AR · HTML/CSS/JS escrito a mano, sin plantillas</p>
+        <nav class="colophon__links" aria-label="Redes">
+          <a href="https://github.com/matifl3" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/matias-felissia-b908841aa/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://wa.me/5492235391618" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.instagram.com/matifl_/" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:matifelissia2205@gmail.com">Email</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokémon en C · Matías Felissia</title>
+  <meta name="description" content="Gestor de mazos de cartas estilo Pokémon en consola, en C: dos jugadores, listas, pilas, colas y árboles binarios, con guardado en archivos binarios.">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23e5473f'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='14' font-weight='900' text-anchor='middle' fill='%23160b0a'%3EMF%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="../assets/fonts/sourceseriflatin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/press.css">
+  <script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-en="Skip to content">Saltar al contenido</a>
+
+  <header class="masthead">
+    <div class="shell">
+      <div class="masthead__folio">
+        <p class="masthead__folio-note">
+          <span data-en="Projects · story 7 of 7">Proyectos · historia 7 de 7</span>
+        </p>
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" class="lang__btn" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+
+      <a class="masthead__name" href="../index.html">Matías Felissia</a>
+
+      <div class="masthead__bar">
+        <nav aria-label="Principal">
+          <ul class="nav">
+            <li><a class="nav__link" href="../index.html#proyectos" aria-current="page" data-en="Projects">Proyectos</a></li>
+            <li><a class="nav__link" href="../index.html#stack" data-en="Stack">Stack</a></li>
+            <li><a class="nav__link" href="../index.html#educacion" data-en="Education">Educación</a></li>
+            <li><a class="nav__link" href="../contacto.html" data-en="Contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--ink masthead__cta" href="../contacto.html" data-en="Contact">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="shell">
+    <p class="crumbs">
+      <a href="../index.html" data-en="Home">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="../index.html#proyectos" data-en="Projects">Proyectos</a>
+      <span aria-hidden="true">/</span>
+      <span>7 · Pokémon en C</span>
+    </p>
+
+    <header class="storyhead">
+      <p class="storyhead__meta">
+        <span data-en="Story 7 of 7">Historia 7 de 7</span>
+        <span aria-hidden="true">·</span>
+        <span class="chip">Repo</span>
+      </p>
+      <h1 class="storyhead__title" data-en="Pokémon in C">Pokémon en C</h1>
+      <p class="storyhead__deck" data-en="A collectible-card deck manager in the console: two players load, show, delete and swap cards between decks, putting data structures to real use.">Un gestor de mazos de cartas coleccionables en la consola: dos jugadores cargan, muestran, eliminan e intercambian cartas entre mazos, poniendo las estructuras de datos a trabajar de verdad.</p>
+    </header>
+
+    <div class="ficha">
+      <div class="ficha__row">
+        <span class="ficha__key" data-en="Role">Rol</span>
+        <span class="ficha__val" data-en="Design and code in C — data structures applied to a real case.">Diseño y código en C — estructuras de datos aplicadas a un caso concreto.</span>
+      </div>
+      <div class="ficha__row">
+        <span class="ficha__key">Stack</span>
+        <span class="ficha__val">C · listas · pilas · colas · árboles binarios · gotoxy</span>
+      </div>
+      <div class="ficha__row">
+        <span class="ficha__key" data-en="Data">Datos</span>
+        <span class="ficha__val" data-en="DatosJugador1.bin · DatosJugador2.bin — <b>binary save</b>">DatosJugador1.bin · DatosJugador2.bin — <b>guardado binario</b></span>
+      </div>
+      <div class="ficha__row">
+        <span class="ficha__key" data-en="Status">Estado</span>
+        <span class="ficha__val"><span data-en="Public repo, console app">Repo público, aplicación de consola</span> · <a href="https://github.com/matifl3/pokemon2" target="_blank" rel="noopener">github.com/matifl3/pokemon2 ↗</a></span>
+      </div>
+    </div>
+
+    <div class="parts">
+      <section class="part">
+        <h2 data-en="What this deck manager runs">Qué gestiona este gestor</h2>
+        <p data-en="Collectible Pokémon-style cards, two players, several decks. The point is not the theme — it is handling all of it with the data structures studied in class, in plain C, in the console.">Cartas coleccionables estilo Pokémon, dos jugadores, varios mazos. El tema es el pretexto: lo que importa es manejarlo con las estructuras de datos de la materia, en C puro y en la consola.</p>
+      </section>
+
+      <section class="part">
+        <h2 data-en="What I built">Qué construí</h2>
+        <ul>
+          <li data-en="Load, show, delete and swap cards between decks.">Carga, muestra, eliminación e intercambio de cartas entre mazos.</li>
+          <li data-en="Lists, stacks, queues and binary trees to hold the data.">Listas, pilas, colas y árboles binarios para manejar los datos.</li>
+          <li data-en="Deck statistics on demand.">Estadísticas del mazo bajo demanda.</li>
+          <li data-en="Navigable menu drawn with gotoxy.">Menú navegable dibujado con gotoxy.</li>
+          <li data-en="Everything saved to binary files between sessions.">Todo guardado en archivos binarios entre sesiones.</li>
+        </ul>
+      </section>
+
+      <section class="part">
+        <h2 data-en="Under the hood">Bajo el capó</h2>
+        <ul>
+          <li data-en="Own list library (liblistaO) used by the main program.">Librería propia de listas (liblistaO) usada por el programa principal.</li>
+          <li data-en="Two independent player datasets, persisted as .bin files.">Dos juegos de datos de jugador independientes, persistidos como .bin.</li>
+          <li data-en="Console UI with cursor positioning — no external libraries.">UI de consola con posicionamiento de cursor — sin librerías externas.</li>
+          <li data-en="Built and debugged with Code::Blocks.">Compilado y depurado con Code::Blocks.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="shots-title">
+      <div class="section__head">
+        <h2 class="section__title" id="shots-title" data-en="Screenshots">Capturas</h2>
+        <p class="section__note" data-en="The console, running.">La consola, corriendo.</p>
+      </div>
+      <div class="plates__grid">
+        <figure class="plate">
+          <div class="plate__shot"><img src="../assets/img/pokemon/menu.png" alt="Menú navegable dibujado con gotoxy" data-en-alt="Navigable menu drawn with gotoxy" width="1280" height="720" loading="lazy"></div>
+          <figcaption><b>Fig. 1</b> — <span data-en="Navigable menu — gotoxy">Menú navegable — gotoxy</span></figcaption>
+        </figure>
+        <figure class="plate">
+          <div class="plate__shot"><img src="../assets/img/pokemon/battle.png" alt="Vista de juego en la consola" data-en-alt="Game view in the console" width="1280" height="720" loading="lazy"></div>
+          <figcaption><b>Fig. 2</b> — <span data-en="Game view">Vista de juego</span></figcaption>
+        </figure>
+        <figure class="plate">
+          <div class="plate__shot"><img src="../assets/img/pokemon/stats.png" alt="Estadísticas del mazo" data-en-alt="Deck statistics" width="1280" height="720" loading="lazy"></div>
+          <figcaption><b>Fig. 3</b> — <span data-en="Deck statistics">Estadísticas del mazo</span></figcaption>
+        </figure>
+        <figure class="plate">
+          <div class="plate__shot"><img src="../assets/img/pokemon/inventory.png" alt="Mazos y cartas de los jugadores" data-en-alt="Player decks and cards" width="1280" height="720" loading="lazy"></div>
+          <figcaption><b>Fig. 4</b> — <span data-en="Decks and cards">Mazos y cartas</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="actions">
+      <a class="btn btn--ink" href="https://github.com/matifl3/pokemon2" target="_blank" rel="noopener" data-en="Open repo">Abrir repo</a>
+      <a class="btn btn--ghost" href="../contacto.html" data-en="Ask about it">Consultar</a>
+    </div>
+
+    <nav class="pager" aria-label="Navegación de proyectos">
+      <a href="redsocial.html">
+        <span class="pager__label" data-en="Previous">Anterior</span>
+        <span class="pager__name"><span class="pager__pos">6</span> Red Social en C</span>
+      </a>
+      <a href="lfmn.html">
+        <span class="pager__label" data-en="Next">Siguiente</span>
+        <span class="pager__name"><span class="pager__pos">1</span> LFMN</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="colophon">
+    <div class="shell">
+      <div class="colophon__inner">
+        <p class="colophon__meta" data-en="© 2026 Matías Felissia · Mar del Plata, AR · hand-written HTML/CSS/JS, no templates">© 2026 Matías Felissia · Mar del Plata, AR · HTML/CSS/JS escrito a mano, sin plantillas</p>
+        <nav class="colophon__links" aria-label="Redes">
+          <a href="https://github.com/matifl3" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/matias-felissia-b908841aa/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://wa.me/5492235391618" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.instagram.com/matifl_/" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:matifelissia2205@gmail.com">Email</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

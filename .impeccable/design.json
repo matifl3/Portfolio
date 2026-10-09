@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-08T00:00:00Z",
+  "title": "Design System: Portafolio Matías Felissia",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Night Ground", "canonical": "#121110", "tonalRamp": ["#060505", "#0d0c0b", "#121110", "#191716", "#211f1d", "#2a2724", "#37332e", "#47423b"] },
+      "ground-raised": { "role": "neutral", "displayName": "Raised Ground", "canonical": "#1b1a17", "tonalRamp": ["#0d0c0b", "#141312", "#1b1a17", "#232120", "#2c2a27", "#373431", "#45413b", "#57524a"] },
+      "ink": { "role": "neutral", "displayName": "Warm Ink", "canonical": "#ece8df", "tonalRamp": ["#6e6a62", "#8a857b", "#a8a296", "#c4bfb4", "#d8d3c9", "#ece8df", "#f2efe9", "#f7f5ef"] },
+      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#9b958a", "tonalRamp": ["#4a473f", "#5e5a52", "#77726a", "#8a857c", "#9b958a", "#aca69b", "#bcb6ab", "#cdc7bc"] },
+      "rule": { "role": "neutral", "displayName": "Rule", "canonical": "#4a473f", "tonalRamp": ["#1f1e1a", "#2e2c27", "#3b3933", "#4a473f", "#5a564c", "#6b665a", "#7e786a", "#938c7c"] },
+      "rule-soft": { "role": "neutral", "displayName": "Rule Soft", "canonical": "#2b2925", "tonalRamp": ["#121110", "#1b1a18", "#232120", "#2b2925", "#373430", "#44403a", "#524d46", "#625c53"] },
+      "red": { "role": "primary", "displayName": "Signal Red", "canonical": "#e5473f", "tonalRamp": ["#4a1512", "#6b1e19", "#8f2822", "#b7332b", "#e5473f", "#ec6459", "#f28077", "#f79d94"] },
+      "red-deep": { "role": "primary", "displayName": "Press Red Deep", "canonical": "#f2564d", "tonalRamp": ["#571914", "#7a231d", "#a02f27", "#cc4034", "#f2564d", "#f56f65", "#f88a81", "#faa49c"] },
+      "on-red": { "role": "neutral", "displayName": "On-Red", "canonical": "#160b0a", "tonalRamp": ["#050202", "#0b0504", "#160b0a", "#1f100e", "#2a1613", "#371d19", "#472620", "#5a3129"] },
+      "paper-light": { "role": "neutral", "displayName": "Paper Light", "canonical": "#f2efe7", "tonalRamp": ["#726f68", "#8f8c84", "#aca9a0", "#c9c6bd", "#e0ddd5", "#f2efe7", "#f5f3ec", "#f8f6f1"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Portada name between stacked hairlines; interior nameplate is the same face at weight 400.", "sizes": ["clamp(2.6rem, 9vw, 6.5rem)", "clamp(2.1rem, 7vw, 3.4rem)"] },
+      "headline": { "displayName": "Headline", "purpose": "Page h1 on contacto and every proyecto page; portada feature h2.", "sizes": ["clamp(2rem, 6vw, 4rem)", "clamp(1.7rem, 4vw, 2.7rem)"] },
+      "title": { "displayName": "Title", "purpose": "Section heads and story part heads.", "sizes": ["clamp(1.7rem, 4vw, 2.5rem)", "clamp(1.5rem, 3.2vw, 2.1rem)", "clamp(1.5rem, 3.4vw, 2.1rem)"] },
+      "row": { "displayName": "Row", "purpose": "Story row and directory list titles.", "sizes": ["clamp(1.05rem, 2vw, 1.3rem)", "clamp(1.2rem, 2.6vw, 1.55rem)"] },
+      "deck": { "displayName": "Deck", "purpose": "Italic story decks to 60ch.", "sizes": ["clamp(1.1rem, 2.2vw, 1.35rem)", "1.1rem"] },
+      "body": { "displayName": "Body", "purpose": "Running text, descriptions, ficha values; subpage body uses old-style figures.", "sizes": ["17px", "0.9375rem", "0.95rem", "1rem", "1.0625rem", "1.1rem", "1.125rem", "1.25rem", "1.3rem", "1.5rem", "3.2em"] },
+      "label": { "displayName": "Label", "purpose": "Folios, datelines, nav, chips, buttons, field keys; uppercase, tabular figures.", "sizes": ["0.6875rem", "0.75rem", "0.8125rem", "0.875rem"] }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-press", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Subpage state transitions (--ease), 0.12s." },
+      { "name": "ease-out", "value": "ease-out", "purpose": "Portada state transitions and entrance (120–150ms)." },
+      { "name": "entrance-rise", "value": "opacity 0 to 1, translateY(12px) to 0, 220ms ease-out, 0–240ms delays", "purpose": "The portada's single authored .rise stagger; pure CSS so content renders with JS off." },
+      { "name": "duration-state", "value": "120ms–150ms", "purpose": "Hover, focus and color/background state changes on both sheets; skip link slides 0.15s." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "560px" },
+      { "name": "md", "value": "720px" },
+      { "name": "lg", "value": "880px" },
+      { "name": "xl", "value": "980px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Ink)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary action: ink fill inverting to red-deep on hover — subpage nav CTA and stacked stamp actions.",
+      "html": "<button class=\"ds-btn-ink\">Contacto</button>",
+      "css": ".ds-btn-ink { display: inline-block; background: #ece8df; color: #121110; border: 1px solid #ece8df; border-radius: 0; padding: 9px 18px; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; } .ds-btn-ink:hover { background: #f2564d; border-color: #f2564d; color: #160b0a; } .ds-btn-ink:active { background: #e5473f; border-color: #e5473f; color: #160b0a; } .ds-btn-ink:focus-visible { outline: 2px solid #e5473f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Accent Button (Signal Red)",
+      "kind": "button",
+      "refersTo": "button-accent",
+      "description": "The single red CTA — the portada's 'Hablemos'; hover flips to paper-light stock.",
+      "html": "<button class=\"ds-btn-accent\">Hablemos</button>",
+      "css": ".ds-btn-accent { display: inline-block; background: #e5473f; color: #160b0a; border: 1px solid #e5473f; border-radius: 0; padding: 12px 16px; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; } .ds-btn-accent:hover { background: #f2efe7; border-color: #f2efe7; color: #121110; } .ds-btn-accent:focus-visible { outline: 2px solid #e5473f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outlined secondary action; inverts to ink fill on hover like everything else in the paper.",
+      "html": "<button class=\"ds-btn-ghost\">Ver proyectos</button>",
+      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: #ece8df; border: 1px solid #ece8df; border-radius: 0; padding: 9px 18px; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background-color 120ms ease-out, color 120ms ease-out; } .ds-btn-ghost:hover { background: #ece8df; color: #121110; } .ds-btn-ghost:focus-visible { outline: 2px solid #e5473f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Composer field on contacto: raised stock, 1px ink frame, serif text, red-deep focus ring.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-key\">Correo</span><input class=\"ds-field-input\" type=\"email\" placeholder=\"tu@correo.com\"></label>",
+      "css": ".ds-field { display: block; } .ds-field-key { display: block; color: #ece8df; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; } .ds-field-input { display: block; box-sizing: border-box; width: 100%; background: #1b1a17; color: #ece8df; border: 1px solid #ece8df; border-radius: 0; padding: 10px 12px; font-family: \"Source Serif 4\", Georgia, serif; font-size: 1rem; transition: border-color 120ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-field-input::placeholder { color: #9b958a; opacity: 1; } .ds-field-input:focus-visible { outline: 2px solid #f2564d; outline-offset: 2px; }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Outlined label chip with tabular figures — stack tags, story indices, meta marks.",
+      "html": "<span class=\"ds-chip\">2024</span>",
+      "css": ".ds-chip { display: inline-block; background: transparent; color: #ece8df; border: 1px solid #ece8df; border-radius: 0; padding: 3px 8px; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Live Chip",
+      "kind": "chip",
+      "refersTo": "chip-live",
+      "description": "Signal-red fill for live/current state — the only filled chip in the system.",
+      "html": "<span class=\"ds-chip-live\">En vivo</span>",
+      "css": ".ds-chip-live { display: inline-block; background: #e5473f; color: #160b0a; border: 1px solid #e5473f; border-radius: 0; padding: 3px 8px; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Directory Row",
+      "kind": "custom",
+      "description": "Whole-row link on subpages: 1px rule base, inverts to ink-on-ground on hover with focus kept inside the row.",
+      "html": "<a class=\"ds-row\" href=\"#\"><span class=\"ds-row-title\">Proyecto Hidro</span><span class=\"ds-row-note\">Ficha →</span></a>",
+      "css": ".ds-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 14px 8px; background: #121110; color: #ece8df; border-bottom: 1px solid #4a473f; border-radius: 0; font-family: \"Source Serif 4\", Georgia, serif; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; text-decoration: none; transition: background-color 120ms cubic-bezier(0.16, 1, 0.3, 1), color 120ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-row-note { font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #9b958a; transition: color 120ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-row:hover { background: #ece8df; color: #121110; } .ds-row:hover .ds-row-note { color: #121110; } .ds-row:focus-visible { outline: 2px solid #e5473f; outline-offset: -2px; }"
+    },
+    {
+      "name": "Interior Nameplate",
+      "kind": "nav",
+      "description": "Centered wordless flag on subpages, linked home; goes signal red on hover like every subpage link.",
+      "html": "<a class=\"ds-nameplate\" href=\"./index.html\">Matías Felissia</a>",
+      "css": ".ds-nameplate { display: block; text-align: center; color: #ece8df; font-family: \"Source Serif 4\", Georgia, serif; font-size: clamp(2.1rem, 7vw, 3.4rem); font-weight: 400; line-height: 0.96; letter-spacing: -0.01em; text-transform: uppercase; text-decoration: none; transition: color 120ms ease-out; } .ds-nameplate:hover { color: #f2564d; } .ds-nameplate:focus-visible { outline: 2px solid #f2564d; outline-offset: 2px; }"
+    },
+    {
+      "name": "Availability Stamp",
+      "kind": "card",
+      "description": "Framed contact panel: raised stock inside a rule-soft hairline, red-deep key, stacked full-width actions.",
+      "html": "<div class=\"ds-stamp\"><span class=\"ds-stamp-key\">Disponible</span><p class=\"ds-stamp-text\">Recibo proyectos de diseño y desarrollo a partir de octubre.</p><a class=\"ds-stamp-action\" href=\"./contacto.html\">Escribime</a></div>",
+      "css": ".ds-stamp { background: #1b1a17; border: 1px solid #2b2925; border-radius: 0; padding: 22px; } .ds-stamp-key { display: block; color: #f2564d; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; } .ds-stamp-text { margin: 10px 0 18px; color: #ece8df; font-family: \"Source Serif 4\", Georgia, serif; font-size: 1rem; font-weight: 400; line-height: 1.6; } .ds-stamp-action { display: block; text-align: center; background: #ece8df; color: #121110; border: 1px solid #ece8df; border-radius: 0; padding: 9px 18px; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; } .ds-stamp-action:hover { background: #f2564d; border-color: #f2564d; color: #160b0a; } .ds-stamp-action:focus-visible { outline: 2px solid #e5473f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Skip Link",
+      "kind": "nav",
+      "description": "Accessibility bar parked above the fold (top -48px), sliding in on focus in label face.",
+      "html": "<a class=\"ds-skip\" href=\"#main\">Saltar al contenido</a>",
+      "css": ".ds-skip { position: fixed; top: -48px; left: 8px; z-index: 100; background: #ece8df; color: #121110; border-radius: 0; padding: 10px 16px; font-family: \"Archivo Narrow\", \"Arial Narrow\", sans-serif; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: top 0.15s ease-out; } .ds-skip:focus { top: 8px; } .ds-skip:focus-visible { outline: 2px solid #e5473f; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Nocturno — The Night Edition",
+    "overview": "Nocturno prints the portfolio as the night edition of a paper of record: warm near-black stock instead of newsprint grey, warm off-white ink, one signal-red spot, and hairline rules doing the structural work that boxes and shadows do elsewhere. Projects are reported stories — folio lines, datelines, bylines, decks, fichas and plates carry the furniture — and the whole paper is set in two faces: Source Serif 4 for every display and reading line, Archivo Narrow for every label, key, chip and control.\n\nDensity is editorial rather than app-like: sections meet on 1px rules, rows pad 12–17px, corners are square everywhere, and the page answers touch with inversion or a warm tint instead of lift. The system is deliberately flat and deliberately dark; the only chroma is red, and it only ever means something — live, focus, current, one CTA. It refuses the category default of a centered hero over a grid of rounded cards, and it refuses elevation theatre: no radius, no shadow, no glow.\n\nThis file records the shipped Nocturno build (the portada's inline style sheet plus assets/css/press.css for every subpage); the earlier light-newsprint and timing-tower editions are superseded.",
+    "keyCharacteristics": [
+      "Night-edition stock: warm near-black ground (#121110) with warm off-white ink (#ece8df); color-scheme: dark on every page.",
+      "One spot color: signal red (#e5473f) marks state, emphasis and the primary CTA — nowhere else.",
+      "Two faces: Source Serif 4 (variable, weights 200–900, roman + italic) and Archivo Narrow (400/700), both served as local woff2 from assets/fonts/.",
+      "Rule-built: sections, rows, frames and masthead bands are 1px hairlines; zero radius, zero shadows.",
+      "Editorial furniture: folio, dateline, byline, deck, ficha, plates, colophon and stamp as the component language.",
+      "Restrained motion: one staggered rise on the portada, 120–150ms state transitions, prefers-reduced-motion honored on both sheets."
+    ],
+    "rules": [
+      { "name": "The Single-Spot Rule", "body": "One spot color. Red marks state (live, focus, current), emphasis and a single primary CTA; it never fills a section or a page. Its rarity is the point.", "section": "colors" },
+      { "name": "The Two-Face Rule", "body": "Two faces ship: Source Serif 4 sets every display and reading line, Archivo Narrow sets every label, key, chip and control. No third face — not for numbers, not for UI; serif tabular/old-style figures carry data instead of a mono.", "section": "typography" },
+      { "name": "The Short-Label Rule", "body": "Uppercase is a voice for short labels only — folios, datelines, nav, chips, keys, buttons — always letter-spaced (0.04em–0.12em; 0.1em is the Nocturno chrome value, 0.12em the portada slugs). Long metadata lines drop to mixed case at 0.04em tracking.", "section": "typography" },
+      { "name": "The Flat-Print Rule", "body": "Surfaces print flat. Hover flips ink and paper or warms the row one tint step; it never lifts, glows, or blurs.", "section": "elevation" },
+      { "name": "The Square-Corner Rule", "body": "Radius is 0 everywhere. A rounded corner would break the cut-paper silhouette; framing is done with hairlines, never with soft corners.", "section": "shapes" },
+      { "name": "The Inversion Rule", "body": "Hover answers in stock, not in space: interior rows and buttons flip ink and paper, the portada warms the row to raised ground and sets the title red. Nothing lifts, glows, or rounds.", "section": "components" }
+    ],
+    "dos": [
+      "Do keep every assignment inside the two-face system: Source Serif 4 for display and reading, Archivo Narrow for labels and controls (0.6875rem–0.8125rem, uppercase, 0.04em–0.12em).",
+      "Do keep short labels uppercase and long metadata lines mixed-case at 0.04em — the portada's meta and colophon lines do exactly this.",
+      "Do frame tools, images and panels with 1px borders (ink on raised ground; rule/rule-soft for divisions) and separate sections with full-width 1px rules.",
+      "Do answer hover with inversion or one warm tint step in 120–150ms, and keep focus visible as the 2px red ring.",
+      "Do keep both language states typographically identical — data-en swaps words, never styles.",
+      "Do use tabular figures for folios, indices, chips and ficha values; subpage running text keeps old-style figures.",
+      "Do honor prefers-reduced-motion on every surface (both stylesheets implement it)."
+    ],
+    "donts": [
+      "Don't introduce a third typeface or a mono for numbers — two faces, and serif tabular/old-style figures carry data.",
+      "Don't add border-radius anywhere; every shipped corner is square (0).",
+      "Don't add box-shadow, glow or blur to any surface or state — depth is tint, rule and inversion.",
+      "Don't set wide-tracked uppercase on sentences or long metadata lines; that tracking belongs to short labels.",
+      "Don't use signal red as a section or page fill — it marks state, emphasis and one CTA.",
+      "Don't ship looping, parallax or scroll-hijacked motion; the only entrance is the portada's single staggered rise."
+    ]
+  }
+}

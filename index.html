@@ -1,0 +1,837 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matías Felissia — Desarrollador Fullstack / Backend</title>
+  <meta name="description" content="Portfolio de Matías Felissia. Java, Spring Boot, Angular, React y datos. Siete proyectos: LFMN, Malaquita, PetCare, freelance y pipeline ETL.">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Matías Felissia — Desarrollador Fullstack / Backend">
+  <meta property="og:description" content="Siete proyectos con sitio en vivo o repo abierto: Spring Boot, Angular, React, datos. Mar del Plata, Argentina.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23e5473f'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='14' font-weight='900' text-anchor='middle' fill='%23160b0a'%3EMF%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/sourceseriflatin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/sourceseriflatin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivonarrowlatin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="assets/js/site.js" defer></script>
+  <style>
+    @font-face {
+      font-family: "Archivo Narrow";
+      src: url("assets/fonts/archivonarrowlatin.woff2") format("woff2");
+      font-weight: 400 700;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Archivo Narrow";
+      src: url("assets/fonts/archivonarrowlatin-ext.woff2") format("woff2");
+      font-weight: 400 700;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Source Serif 4";
+      src: url("assets/fonts/sourceseriflatin.woff2") format("woff2");
+      font-weight: 200 900;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Source Serif 4";
+      src: url("assets/fonts/sourceseriflatin-ext.woff2") format("woff2");
+      font-weight: 200 900;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Source Serif 4";
+      src: url("assets/fonts/sourceseriflatin-italic.woff2") format("woff2");
+      font-weight: 200 900;
+      font-style: italic;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Source Serif 4";
+      src: url("assets/fonts/sourceseriflatin-ext-italic.woff2") format("woff2");
+      font-weight: 200 900;
+      font-style: italic;
+      font-display: swap;
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    :root {
+      --bg: #121110;
+      --bg-hi: #1b1a17;
+      --text: #ece8df;
+      --muted: #9b958a;
+      --hair: #2b2925;
+      --red: #e5473f;
+      --paper: #f2efe7;
+      --serif: "Source Serif 4", Georgia, serif;
+      --label: "Archivo Narrow", "Arial Narrow", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      color-scheme: dark;
+      scrollbar-color: var(--text) var(--bg);
+    }
+
+    ::selection { background: var(--text); color: var(--bg); }
+
+    input, textarea, button { caret-color: #f2564d; }
+
+    ::-webkit-scrollbar { width: 12px; height: 12px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--text); border: 3px solid var(--bg); }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .skip {
+      position: absolute;
+      left: 8px;
+      top: -48px;
+      z-index: 10;
+      background: var(--text);
+      color: var(--bg);
+      font-family: var(--label);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      text-decoration: none;
+    }
+    .skip:focus { top: 8px; }
+
+    .wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    .rule { border: 0; border-top: 1px solid var(--hair); margin: 0; }
+    .rule--red { border-top-color: var(--red); }
+
+    .meta {
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .meta b { color: var(--red); font-weight: 700; }
+
+    /* ---------- Masthead ---------- */
+
+    .masthead { padding: 18px 0 0; }
+
+    .masthead__row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .masthead__right {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 120ms ease-out;
+    }
+
+    .nav a:hover { color: var(--text); }
+    .nav a:last-child { color: var(--red); }
+
+    .lang {
+      display: inline-flex;
+      border: 1px solid var(--hair);
+    }
+
+    .lang__btn {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      border-left: 1px solid var(--hair);
+      color: var(--muted);
+      font-family: var(--label);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: color 120ms ease-out, background-color 130ms ease-out;
+    }
+
+    .lang__btn:first-child { border-left: 0; }
+    .lang__btn:hover { color: var(--text); }
+    .lang__btn[aria-pressed="true"] { background: var(--red); color: #160b0a; }
+
+    .masthead__name {
+      margin: 0;
+      padding: 26px 0 18px;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(2.6rem, 9vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .masthead__name em {
+      font-style: normal;
+      font-weight: 400;
+      text-transform: none;
+      color: var(--muted);
+    }
+
+    /* ---------- Feature ---------- */
+
+    .feature {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 22px;
+      padding: 38px 0 46px;
+    }
+
+    .feature > div {
+      border-right: 1px solid var(--hair);
+      padding-right: 22px;
+    }
+
+    .feature h2 {
+      margin: 14px 0 18px;
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .feature h2 em { font-style: italic; color: var(--red); }
+
+    .deck {
+      margin: 0;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+
+    .byline {
+      margin: 20px 0 0;
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .byline b { color: var(--text); font-weight: 700; }
+
+    .stamp {
+      border: 1px solid var(--hair);
+      background: var(--bg-hi);
+      padding: 22px;
+      align-self: start;
+    }
+
+    .stamp__label {
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #f2564d;
+      margin: 0 0 12px;
+    }
+
+    .stamp p { margin: 0 0 14px; font-size: 0.95rem; }
+
+    .stamp .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      display: block;
+      padding: 12px 16px;
+      text-align: center;
+      font-family: var(--label);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      border: 1px solid var(--hair);
+      color: var(--text);
+      transition: background-color 130ms ease-out, color 130ms ease-out, border-color 130ms ease-out;
+    }
+
+    .btn:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+    .btn--red { background: var(--red); border-color: var(--red); color: #160b0a; }
+    .btn--red:hover { background: var(--paper); border-color: var(--paper); color: var(--bg); }
+
+    /* ---------- Sections ---------- */
+
+    .sec { padding: 46px 0; border-top: 1px solid var(--hair); }
+
+    .sec__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .sec__title {
+      margin: 0;
+      font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+
+    /* ---------- Stories list ---------- */
+
+    .stories { border-top: 1px solid var(--hair); }
+
+    .story {
+      display: grid;
+      grid-template-columns: 46px 1.1fr 1.5fr auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 17px 10px;
+      border-bottom: 1px solid var(--hair);
+      text-decoration: none;
+      transition: background-color 130ms ease-out;
+    }
+
+    .story:hover { background: var(--bg-hi); }
+    .story:hover .story__title { color: #f2564d; }
+    .story:hover .story__arrow { transform: translateX(5px); }
+
+    .story__num {
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .story__title {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      transition: color 130ms ease-out;
+    }
+
+    .story__desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .story__side {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-family: var(--label);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .story__side .live { color: var(--red); }
+    .story:hover .story__side .live { color: #f2564d; }
+
+    .story__arrow {
+      color: var(--red);
+      transition: transform 150ms ease-out;
+      font-family: var(--serif);
+      font-size: 1rem;
+    }
+
+    /* ---------- Stack ---------- */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      font-family: var(--label);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 7px 13px;
+      border: 1px solid var(--hair);
+      color: var(--muted);
+      transition: color 120ms ease-out, border-color 120ms ease-out;
+    }
+
+    .tag:hover { color: var(--text); border-color: var(--text); }
+
+    /* ---------- About / contact ---------- */
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 20px;
+    }
+
+    .cols > div:first-child {
+      border-right: 1px solid var(--hair);
+      padding-right: 20px;
+    }
+
+    .cols p { margin: 0 0 16px; max-width: 58ch; }
+
+    .where {
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--red);
+      margin-bottom: 4px !important;
+    }
+
+    .contact-list { list-style: none; margin: 0; padding: 0; }
+
+    .contact-list a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--hair);
+      font-family: var(--label);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 120ms ease-out, background-color 130ms ease-out;
+    }
+
+    .contact-list a:hover { color: var(--text); background: var(--bg-hi); }
+
+    /* ---------- Colophon ---------- */
+
+    .colophon {
+      border-top: 1px solid var(--hair);
+      padding: 26px 0 44px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .colophon a { color: var(--red); text-decoration: none; }
+    .colophon a:hover { text-decoration: underline; }
+
+    /* Long metadata lines: mixed case, tight tracking (uppercase reserved for short labels) */
+
+    .masthead__row .meta,
+    .feature .meta,
+    .colophon .meta {
+      text-transform: none;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---------- Motion ---------- */
+
+    .rise {
+      animation: rise 220ms ease-out both;
+      animation-delay: var(--d, 0ms);
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rise { animation: none; }
+      .story, .btn, .nav a, .tag, .contact-list a, .story__arrow, .lang__btn { transition: none; }
+    }
+
+        /* ---------- Tech / Experience / CV CTA ---------- */
+    .tech-groups {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .tech-group {
+      border: 1px solid var(--hair);
+      background: var(--bg-hi);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tech-group__title {
+      margin: 0;
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--red);
+    }
+    .tech-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-list li {
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border: 1px solid var(--hair);
+      color: var(--muted);
+    }
+    .timeline {
+      border-top: 1px solid var(--hair);
+    }
+    .exp-item {
+      border-bottom: 1px solid var(--hair);
+      padding: 16px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .exp-title {
+      margin: 0;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .exp-date {
+      font-family: var(--label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .exp-desc {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    @media (max-width: 1080px) {
+      .tech-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .tech-groups { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 880px) {
+      .feature { grid-template-columns: 1fr; gap: 44px; }
+      .feature > div { border-right: 0; padding-inline-end: 0; }
+      .story { grid-template-columns: 36px 1fr; }
+      .story__desc { grid-column: 2; }
+      .story__side { grid-column: 2; }
+      .cols { grid-template-columns: 1fr; gap: 40px; }
+      .cols > div:first-child { border-right: 0; padding-inline-end: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main" data-en="Skip to content">Saltar al contenido</a>
+
+<div class="wrap">
+  <header class="masthead">
+    <hr class="rule rule--red">
+    <div class="masthead__row">
+      <span class="meta" data-en="Night edition <b>·</b> Mar del Plata <b>·</b> 2026">Mar del Plata <b>·</b> 2026</span>
+      <div class="masthead__right">
+        <nav class="nav" aria-label="Principal" data-en-label="Main">
+          <a href="#proyectos" data-en="Projects">Proyectos</a> <a href="#tecnologias" data-en="Technologies">Tecnologías</a> <a href="#stack" data-en="Stack">Stack</a>
+          <a href="#sobre-mi" data-en="About">Sobre mí</a>
+          <a href="contacto.html" data-en="Contact">Contacto</a>
+        </nav>
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" class="lang__btn" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+    <hr class="rule">
+    <h1 class="masthead__name rise" style="--d:0ms">Matías Felissia</h1>
+    <hr class="rule">
+  </header>
+
+  <main id="main">
+    <section class="feature">
+      <div>
+        <span class="meta rise" style="--d:60ms" data-en="Front page <b>/</b> Fullstack · Backend developer">Portada <b>/</b> Desarrollador Fullstack · Backend</span>
+        <h2 class="rise" style="--d:100ms" data-en="I build APIs and platforms ready for production.</em>">Desarrollo aplicaciones y APIs Full Stack con enfoque en soluciones escalables, limpias y mantenibles.</em></h2>
+        <p class="deck rise" style="--d:140ms" data-en="From a simracing league with ~180 endpoints and Elo rating to the ETL that normalized four WEC seasons: open code, live sites and real figures.">Me enfoco en construir soluciones completas: desde APIs robustas, seguras y bien estructuradas, hasta interfaces funcionales, accesibles y desplegables. Combino habilidades técnicas con comunicación efectiva, trabajo en equipo y resolución de problemas para entregar valor real a cada proyecto.</p>
+        <p class="byline rise" style="--d:180ms" data-en="By <b>Matías Felissia</b> · Java · Spring · Angular">Por <b>Matías Felissia</b> · Java · Spring · Angular</p>
+      </div>
+
+      <aside class="stamp rise" style="--d:220ms" aria-label="Disponibilidad" data-en-label="Availability">
+        <p class="stamp__label" data-en="Available for work">Disponible para propuestas</p>
+        <p data-en="APIs with Spring Boot (JWT, roles, security), Angular frontends and deployments that stay live.">APIs con Spring Boot (JWT, roles, seguridad), frontends en Angular y despliegues que se quedan vivos.</p>
+        <div class="actions">
+          <a class="btn btn--red" href="contacto.html" data-en="Let's talk">Hablemos</a>
+          <a class="btn" href="#proyectos" data-en="See projects">Ver proyectos</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="sec" id="proyectos" aria-labelledby="t-p">
+      <div class="sec__head rise">
+        <h2 class="sec__title" id="t-p" data-en="The projects">Los proyectos</h2>
+        <span class="meta">01 <b>/</b> 07</span>
+      </div>
+
+      <div class="stories">
+        <a class="story rise" style="--d:0ms" href="proyectos/lfmn.html">
+          <span class="story__num">01</span>
+          <span class="story__title" data-en="LFMN — Simracing League">LFMN — Liga de Simracing</span>
+          <span class="story__desc" data-en="Championships and Elo/SR rating over ~180 endpoints.">Campeonatos y rating Elo/SR sobre ≈180 endpoints.</span>
+          <span class="story__side"><span class="live" data-en="Live">En vivo</span><span class="story__arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="story rise" style="--d:40ms" href="proyectos/malaquita.html">
+          <span class="story__num">02</span>
+          <span class="story__title">Malaquita — E-commerce</span>
+          <span class="story__desc" data-en="Catalog, cart and a panel with 4 metrics.">Catálogo, carrito y panel con 4 métricas.</span>
+          <span class="story__side">Repo<span class="story__arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="story rise" style="--d:80ms" href="proyectos/petcare.html">
+          <span class="story__num">03</span>
+          <span class="story__title" data-en="PetCare — Veterinary clinic">PetCare — Veterinaria</span>
+          <span class="story__desc" data-en="Appointments, history and store · three security roles.">Turnos, historial y tienda · tres roles de seguridad.</span>
+          <span class="story__side">Repo<span class="story__arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="story rise" style="--d:120ms" href="proyectos/wec.html">
+          <span class="story__num">04</span>
+          <span class="story__title">WEC — Pipeline ETL</span>
+          <span class="story__desc" data-en="Four timing seasons → dashboard.">Cuatro temporadas de cronometraje → dashboard.</span>
+          <span class="story__side"><span data-en="Delivered">Entregado</span><span class="story__arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="story rise" style="--d:160ms" href="proyectos/redsocial.html">
+          <span class="story__num">05</span>
+          <span class="story__title" data-en="Social Network in C">Red Social en C</span>
+          <span class="story__desc" data-en="Console forum in pure C, persistence on disk.">Foro de consola en C puro, persistencia en disco.</span>
+          <span class="story__side">Repo<span class="story__arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="story rise" style="--d:200ms" href="proyectos/pokemon.html">
+          <span class="story__num">06</span>
+          <span class="story__title" data-en="Pokémon in C">Pokémon en C</span>
+          <span class="story__desc" data-en="Decks with lists, stacks, queues and binary trees.">Mazos con listas, pilas, colas y árboles binarios.</span>
+          <span class="story__side">Repo<span class="story__arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="story rise" style="--d:240ms" href="proyectos/freelance.html">
+          <span class="story__num">07</span>
+          <span class="story__title" data-en="Freelance — Client work">Freelance — Clientes</span>
+          <span class="story__desc">Barrabrava · costa-mía · Martin Ferreira.</span>
+          <span class="story__side"><span class="live" data-en="1 live">1 en vivo</span><span class="story__arrow" aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="sec" id="stack" aria-labelledby="t-s">
+      <div class="sec__head rise">
+        <h2 class="sec__title" id="t-s">Stack</h2>
+        <span class="meta" data-en="Tooling">Herramientas</span>
+      </div>
+      <div class="tags rise" style="--d:60ms">
+        <span class="tag">Java 21</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">Spring Security</span>
+        <span class="tag">JWT</span>
+        <span class="tag">Angular</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">SCSS</span>
+        <span class="tag">Tailwind</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JPA</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Git</span>
+        <span class="tag">pandas</span>
+        <span class="tag">Looker Studio</span>
+      </div>
+    <section class="sec" id="tecnologias" aria-labelledby="tech-title">
+      <div class="sec__head">
+        <h2 class="sec__title" id="tech-title" data-en="Technologies">Tecnologías</h2>
+      </div>
+      <div class="tech-groups">
+        <article class="tech-group">
+          <h3 class="tech-group__title" data-en="Backend">Backend</h3>
+          <ul class="tech-list">
+            <li>Node.js</li>
+            <li>Express</li>
+            <li>TypeScript</li>
+            <li>Java</li>
+            <li>Spring Boot</li>
+            <li>Python</li>
+          </ul>
+        </article>
+        <article class="tech-group">
+          <h3 class="tech-group__title" data-en="Databases">Bases de datos</h3>
+          <ul class="tech-list">
+            <li>PostgreSQL</li>
+            <li>MySQL</li>
+            <li>SQLite</li>
+          </ul>
+        </article>
+        <article class="tech-group">
+          <h3 class="tech-group__title" data-en="Data &amp; ETL">Datos &amp; ETL</h3>
+          <ul class="tech-list">
+            <li>Pandas</li>
+            <li>NumPy</li>
+            <li>Jupyter</li>
+            <li>ETL</li>
+          </ul>
+        </article>
+        <article class="tech-group">
+          <h3 class="tech-group__title" data-en="Infra &amp; Tools">Infra &amp; Tools</h3>
+          <ul class="tech-list">
+            <li>Git</li>
+            <li>Docker</li>
+            <li>Railway</li>
+            <li>Vercel</li>
+            <li>Render</li>
+            <li>Looker Studio</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="experiencia" aria-labelledby="exp-title">
+      <div class="sec__head">
+        <h2 class="sec__title" id="exp-title" data-en="Experience">Experiencia</h2>
+      </div>
+      <div class="timeline">
+        <article class="exp-item">
+          <header class="exp-header">
+            <h3 class="exp-title" data-en="Backend Developer">Desarrollador Backend</h3>
+            <span class="exp-date">2024 — Presente</span>
+          </header>
+          <p class="exp-desc" data-en="Development and deployment of APIs and platforms with a production focus, real data and open-source mindset.">Desarrollo y despliegue de APIs y plataformas con enfoque en producción, datos reales y código abierto.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="cv-completo" aria-labelledby="cv-title">
+      <div class="sec__head">
+        <h2 class="sec__title" id="cv-title" data-en="Full CV">CV completo</h2>
+      </div>
+      <p data-en="For full details (experience, education, languages, etc.):">Para ver experiencia, formación, idiomas y detalles completos:</p>
+      <a class="btn btn--red" href="assets/Curriculum Vitae - Matías Felissia.pdf" target="_blank" rel="noopener noreferrer" data-en="View CV (PDF)">Ver CV en PDF</a>
+    </section>
+
+    <section class="sec" id="sobre-mi" aria-labelledby="t-so">
+      <div class="sec__head rise">
+        <h2 class="sec__title" id="t-so" data-en="About me">Sobre mí</h2>
+        <span class="meta" data-en="Education <b>·</b> Contact">Formación <b>·</b> Contacto</span>
+      </div>
+            <div class="soft-skills rise" style="--d:200ms">
+        <h3 class="soft-skills__title" data-en="Soft skills">Habilidades blandas</h3>
+        <ul class="soft-skills__list">
+          <li data-en="Clear communication">Comunicación clara</li>
+          <li data-en="Problem solving">Resolución de problemas</li>
+          <li data-en="Teamwork">Trabajo en equipo</li>
+          <li data-en="Proactivity">Proactividad</li>
+          <li data-en="Adaptability">Adaptabilidad</li>
+          <li data-en="Attention to detail">Atención al detalle</li>
+          <li data-en="Commitment">Compromiso</li>
+          <li data-en="Time management">Gestión del tiempo</li>
+        </ul>
+      </div>
+        <div class="cols">
+        <div id="educacion" class="rise" style="--d:0ms">
+          <p class="where" data-en="UTN Mar del Plata · 2023 – in progress">UTN Mar del Plata · 2023 – en curso</p>
+          <p data-en="Technologist in Software Development, focused on backend: Java, Spring and API design that runs in production.">Tecnología en Desarrollo de Software, con el foco puesto en backend: Java, Spring y diseño de APIs que funcionan en producción.</p>
+          <p class="where">Institución Jesús Obrero · 2006 – 2020</p>
+          <p data-en="Full secondary education. Since then, most of what I know I learned building real things: for university, for clients and for fun.">Educación secundaria completa. Desde entonces, la mayoría de lo que sé lo aprendí construyendo cosas reales: para la facultad, para clientes y por ganas.</p>
+        </div>
+        <div class="rise" style="--d:60ms">
+          <ul class="contact-list">
+            <li><a href="mailto:matifelissia2205@gmail.com">Email <span>→</span></a></li>
+            <li><a href="https://github.com/matifl3" target="_blank" rel="noopener">GitHub <span>↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/matias-felissia-b908841aa/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a></li>
+            <li><a href="https://wa.me/5492235391618" target="_blank" rel="noopener">WhatsApp <span>↗</span></a></li>
+            <li><a href="https://www.instagram.com/matifl_/" target="_blank" rel="noopener">Instagram <span>↗</span></a></li>
+            <li><a href="assets/Curriculum Vitae - Matías Felissia.pdf" download><span data-en="CV (PDF)">CV (PDF)</span> <span>↓</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <span class="meta" data-en="Night edition <b>·</b> Matías Felissia <b>·</b> Mar del Plata">Edición nocturna <b>·</b> Matías Felissia <b>·</b> Mar del Plata</span>
+    <span class="meta"><a href="mailto:matifelissia2205@gmail.com">matifelissia2205@gmail.com</a></span>
+  </footer>
+</div>
+
+</body>
+</html>

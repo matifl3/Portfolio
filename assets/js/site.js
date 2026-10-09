@@ -123,6 +123,57 @@
     });
   });
 
+  /* ---------- Mail: mailto with webmail fallback ---------- */
+
+  var MAIL_ADDR = "matifelissia2205@gmail.com";
+
+  function parseMailto(href) {
+    var rest = href.slice("mailto:".length);
+    var q = rest.indexOf("?");
+    var to = q >= 0 ? rest.slice(0, q) : rest;
+    var params = {};
+    if (q >= 0) {
+      rest.slice(q + 1).split("&").forEach(function (pair) {
+        var eq = pair.indexOf("=");
+        if (eq > 0) {
+          var key = pair.slice(0, eq);
+          var val = decodeURIComponent(pair.slice(eq + 1).replace(/\+/g, " "));
+          params[key.toLowerCase()] = val;
+        }
+      });
+    }
+    return { to: to || MAIL_ADDR, subject: params.subject || "", body: params.body || "" };
+  }
+
+  function gmailUrl(href) {
+    var m = parseMailto(href);
+    return (
+      "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+      encodeURIComponent(m.to) +
+      (m.subject ? "&su=" + encodeURIComponent(m.subject) : "") +
+      (m.body ? "&body=" + encodeURIComponent(m.body) : "")
+    );
+  }
+
+  function openMail(href) {
+    window.location.href = href;
+    /* If no system mail handler exists, mailto does nothing and the tab
+       keeps focus: fall back to Gmail web compose a moment later. */
+    setTimeout(function () {
+      if (document.hasFocus()) {
+        window.location.href = gmailUrl(href);
+      }
+    }, 1200);
+  }
+
+  document.addEventListener("click", function (e) {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
+    if (!a) return;
+    e.preventDefault();
+    openMail(a.getAttribute("href"));
+  });
+
   /* ---------- Payload composer (opens mail client) ---------- */
 
   var composer = document.getElementById("composer");
@@ -138,11 +189,9 @@
         (name ? " — " + name : "");
       var body = (name ? name + "\n\n" : "") + msg;
       var href =
-        "mailto:matifelissia2205@gmail.com?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
-      window.location.href = href;
+        "mailto:" + MAIL_ADDR + "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+      openMail(href);
     });
   }
 })();

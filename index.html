@@ -82,6 +82,7 @@
     html {
       color-scheme: dark;
       scrollbar-color: var(--text) var(--bg);
+      scroll-behavior: smooth;
     }
 
     ::selection { background: var(--text); color: var(--bg); }
@@ -524,6 +525,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
       .rise, .rule--draw { animation: none; }
       .story, .btn, .nav a, .tag, .contact-list a, .story__arrow, .lang__btn,
       .tech-list li, .contact-list a span { transition: none; }
